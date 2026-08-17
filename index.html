@@ -3,60 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LumioBooks</title>
+  <title>LumioBooks — Minimalist Library</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header with Brand & Dark Mode Toggle -->
-  <header class="lumio-header">
-    <div class="header-content">
-      <div class="brand">
-        <span class="brand-icon">📖</span>
-        <span class="brand-title">LumioBooks</span>
-      </div>
 
-      <form id="search-form" class="search-bar">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <header class="lumio-nav">
+    <div class="nav-container">
+      <a href="#" class="brand-link">
+        <svg class="brand-mark" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="brand-name">LumioBooks</span>
+      </a>
+
+      <form id="search-form" class="search-field">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" id="search-input" placeholder="Search titles, authors, topics..." required />
-        <button type="submit" class="accent-btn">Search</button>
+        <input type="text" id="search-input" placeholder="Search title, author, topic..." autocomplete="off" />
+        <kbd class="key-hint">⌘K</kbd>
       </form>
 
-      <!-- Theme Switcher -->
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-        <span class="theme-icon">🌙</span>
+      <button id="theme-btn" class="icon-btn" aria-label="Toggle theme">
+        <svg class="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
       </button>
     </div>
 
-    <!-- Category Pill Filters -->
-    <nav class="categories-wrapper">
-      <div class="categories-pill-list" id="category-pills">
-        <button class="pill active" data-category="All">All</button>
-        <button class="pill" data-category="Technology">Technology</button>
+    <!-- Category Filters -->
+    <nav class="categories-bar">
+      <div class="categories-container" id="category-pills">
+        <button class="pill active" data-category="Curated">Curated</button>
+        <button class="pill" data-category="Architecture">Architecture</button>
         <button class="pill" data-category="Design">Design</button>
+        <button class="pill" data-category="Technology">Technology</button>
+        <button class="pill" data-category="Philosophy">Philosophy</button>
         <button class="pill" data-category="Fiction">Fiction</button>
-        <button class="pill" data-category="Science">Science</button>
-        <button class="pill" data-category="History">History</button>
-        <button class="pill" data-category="Business">Business</button>
       </div>
     </nav>
   </header>
 
-  <main class="main-container">
-    <div id="status-message" class="status-message"></div>
+  <main class="content-wrapper">
+    <div id="status-text" class="status-indicator"></div>
 
-    <!-- Skeleton Loader -->
-    <div id="loading-container" class="book-grid hidden">
+    <!-- Skeleton Matrix -->
+    <div id="loading-grid" class="books-grid hidden">
       <div class="skeleton-card"></div>
       <div class="skeleton-card"></div>
       <div class="skeleton-card"></div>
       <div class="skeleton-card"></div>
     </div>
 
-    <div id="results-grid" class="book-grid"></div>
+    <div id="results-grid" class="books-grid"></div>
   </main>
+
+  <!-- Slide-Over Book Details Drawer -->
+  <div id="modal-overlay" class="drawer-overlay hidden">
+    <div class="drawer-card">
+      <button id="close-drawer" class="drawer-close-btn" aria-label="Close modal">&times;</button>
+      <div id="drawer-content"></div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
