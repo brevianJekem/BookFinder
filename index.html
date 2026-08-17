@@ -1,40 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Books — Apple Style</title>
+  <title>LumioBooks</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Glassmorphic Sticky Header -->
-  <header class="apple-header">
+  <!-- Header with Brand & Dark Mode Toggle -->
+  <header class="lumio-header">
     <div class="header-content">
       <div class="brand">
-        <span class="apple-logo"></span>
-        <span class="brand-title">Books</span>
+        <span class="brand-icon">📖</span>
+        <span class="brand-title">LumioBooks</span>
       </div>
-      <form id="search-form" class="apple-search-bar">
+
+      <form id="search-form" class="search-bar">
         <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input 
-          type="text" 
-          id="search-input" 
-          placeholder="Search titles, authors, subjects..." 
-          required 
-          autocomplete="off"
-        />
-        <button type="submit" id="search-btn" class="apple-btn">Search</button>
+        <input type="text" id="search-input" placeholder="Search titles, authors, topics..." required />
+        <button type="submit" class="accent-btn">Search</button>
       </form>
+
+      <!-- Theme Switcher -->
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+        <span class="theme-icon">🌙</span>
+      </button>
     </div>
+
+    <!-- Category Pill Filters -->
+    <nav class="categories-wrapper">
+      <div class="categories-pill-list" id="category-pills">
+        <button class="pill active" data-category="All">All</button>
+        <button class="pill" data-category="Technology">Technology</button>
+        <button class="pill" data-category="Design">Design</button>
+        <button class="pill" data-category="Fiction">Fiction</button>
+        <button class="pill" data-category="Science">Science</button>
+        <button class="pill" data-category="History">History</button>
+        <button class="pill" data-category="Business">Business</button>
+      </div>
+    </nav>
   </header>
 
-  <main class="apple-container">
-    <div id="status-message" class="status-message">Explore millions of titles across every genre.</div>
+  <main class="main-container">
+    <div id="status-message" class="status-message"></div>
 
-    <!-- Skeleton Loaders -->
+    <!-- Skeleton Loader -->
     <div id="loading-container" class="book-grid hidden">
       <div class="skeleton-card"></div>
       <div class="skeleton-card"></div>
@@ -42,7 +55,6 @@
       <div class="skeleton-card"></div>
     </div>
 
-    <!-- Results Grid -->
     <div id="results-grid" class="book-grid"></div>
   </main>
 
