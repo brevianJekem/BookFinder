@@ -3,28 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book Finder App</title>
+  <title>Books — Apple Style</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <h1>📚 Book Finder</h1>
-    <form id="search-form" class="search-form">
-      <input 
-        type="text" 
-        id="search-input" 
-        placeholder="Search by title, author, or keyword..." 
-        required 
-        aria-label="Search query"
-      />
-      <button type="submit" id="search-btn">Search</button>
-    </form>
+  <!-- Glassmorphic Sticky Header -->
+  <header class="apple-header">
+    <div class="header-content">
+      <div class="brand">
+        <span class="apple-logo"></span>
+        <span class="brand-title">Books</span>
+      </div>
+      <form id="search-form" class="apple-search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search titles, authors, subjects..." 
+          required 
+          autocomplete="off"
+        />
+        <button type="submit" id="search-btn" class="apple-btn">Search</button>
+      </form>
+    </div>
   </header>
 
-  <main class="container">
-    <div id="status-message" class="status-message">Search for books to get started.</div>
-    
-    <!-- Loading Skeleton Grid -->
+  <main class="apple-container">
+    <div id="status-message" class="status-message">Explore millions of titles across every genre.</div>
+
+    <!-- Skeleton Loaders -->
     <div id="loading-container" class="book-grid hidden">
       <div class="skeleton-card"></div>
       <div class="skeleton-card"></div>
